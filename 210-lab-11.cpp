@@ -29,10 +29,22 @@ int main() {
     students[1].grades = new double[GRADE_COUNT]{78, 84, 81}; 
 
     // creates student 3
-    students[2].name = "Travis Smoe"; 
+    students[2].name = "Travis Smoke"; 
     students[2].studentID = 896020; 
     students[2].graduationYear = 2026; 
     students[2].grades = new double[GRADE_COUNT]{75, 79, 77.5}; 
+
+    // outputs students information
+    for(int i = 0; i < STUDENT_SIZE; i++) { 
+        cout << "Name: " << (*(students + i)).name << endl; 
+        cout << "Graduation Year: " << (*(students + i)).graduationYear << endl;
+        cout << "Student ID: " << (*(students + i)).studentID << endl;  
+        cout << "Grades: "; 
+        for(int j = 0; j < GRADE_COUNT; j++) { 
+            cout << *((*(students + i)).grades + j) << " "; 
+        }
+        cout << endl << endl; // skips extra line in output 
+    }
 
     return 0; 
 }
