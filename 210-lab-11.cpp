@@ -15,24 +15,27 @@ int main() {
     const int STUDENT_SIZE = 3; 
     const int GRADE_COUNT = 3; 
     Student* students = new Student[STUDENT_SIZE];
-    
+    int n = 0; // tracks student data being entered 
+
     // creates student 1
-    students[0].name = "John Doe"; 
-    students[0].studentID = 541675; 
-    students[0].graduationYear = 2027; 
-    students[0].grades = new double[GRADE_COUNT]{92, 87, 89.5}; 
+    (*(students + n)).name = "John Doe"; 
+    (*(students + n)).studentID = 541675; 
+    (*(students + n)).graduationYear = 2027; 
+    (*(students + n)).grades = new double[GRADE_COUNT]{92, 87, 89.5}; 
 
     // creates student 2
-    students[1].name = "Joe Smith"; 
-    students[1].studentID = 259741; 
-    students[1].graduationYear = 2026; 
-    students[1].grades = new double[GRADE_COUNT]{78, 84, 81}; 
+    n++; 
+    (*(students + n)).name = "Joe Smith"; 
+    (*(students + n)).studentID = 259741; 
+    (*(students + n)).graduationYear = 2026; 
+    (*(students + n)).grades = new double[GRADE_COUNT]{78, 84, 81}; 
 
     // creates student 3
-    students[2].name = "Travis Smoke"; 
-    students[2].studentID = 896020; 
-    students[2].graduationYear = 2026; 
-    students[2].grades = new double[GRADE_COUNT]{75, 79, 77.5}; 
+    n++; 
+    (*(students + n)).name = "Travis Smoke"; 
+    (*(students + n)).studentID = 896020; 
+    (*(students + n)).graduationYear = 2026; 
+    (*(students + n)).grades = new double[GRADE_COUNT]{75, 79, 77.5}; 
 
     // outputs students information
     for(int i = 0; i < STUDENT_SIZE; i++) { 
@@ -40,6 +43,7 @@ int main() {
         cout << "Graduation Year: " << (*(students + i)).graduationYear << endl;
         cout << "Student ID: " << (*(students + i)).studentID << endl;  
         cout << "Grades: "; 
+        // outputs all grades on one line
         for(int j = 0; j < GRADE_COUNT; j++) { 
             cout << *((*(students + i)).grades + j) << " "; 
         }
