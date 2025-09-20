@@ -9,6 +9,11 @@ struct Student {
     int studentID; 
     int graduationYear; 
     double* grades; 
+
+    // Destructor to free dynamic memory and avoid memory leak
+    ~Student() { 
+        delete[] grades; 
+    }
 };
 
 int main() {
@@ -50,5 +55,6 @@ int main() {
         cout << endl << endl; // skips extra line in output 
     }
 
+    delete[] students; // deletes students data 
     return 0; 
 }
